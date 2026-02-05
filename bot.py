@@ -60,17 +60,19 @@ async def create_request_list_embed(bot):
     )
 
     async for msg in channel.history(limit=50):
-         # システムメッセージ除外（スレッド開始通知など）
-        if msg.type != 0:
-            continue
-        # ② Webhook 以外の投稿は除外
+
+    # 通常メッセージのみ
+    if msg.type != 0:
+        continue
+
+    # Webhook 投稿のみ拾う
     if msg.webhook_id is None:
         continue
 
-        # 👍 が付いていたら除外
-        if any(r.emoji == "👍" for r in msg.reactions):
-            continue
-
+    # 👍 が付いていたら除外
+    if any(reaction.emoji == "👍" for reaction in msg.reactions):
+        continue
+        
         name, date_str, rule, weapon, method = extract_request_info(msg.content)
 
         embed.add_field(
