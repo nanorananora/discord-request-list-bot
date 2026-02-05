@@ -60,6 +60,8 @@ async def create_request_list_embed(bot):
     )
 
     async for msg in channel.history(limit=50):
+            if msg.type != discord.MessageType.default:
+                continue
         if msg.author.bot:
             continue
 
