@@ -61,24 +61,25 @@ async def create_request_list_embed(bot):
 
     async for msg in channel.history(limit=50):
 
-    # 通常メッセージのみ
-    if msg.type != 0:
-        continue
+        # 通常メッセージ以外（スレッド作成通知など）を除外
+        if msg.type != discord.MessageType.default:
+            continue
 
-    # Webhook 投稿のみ拾う
-    if msg.webhook_id is None:
-        continue
+        # Webhook投稿のみ拾う
+        if msg.webhook_id is None:
+            continue
 
-    # 👍 が付いていたら除外
-    if any(reaction.emoji == "👍" for reaction in msg.reactions):
-        continue
-        
+        # 👍 が付いていたら除外
+        if msg.reactions:
+            if any(r.emoji == "👍" for r in msg.reactions):
+                continue
+
         name, date_str, rule, weapon, method = extract_request_info(msg.content)
 
         embed.add_field(
             name=f"■ {name} {date_str}メモプ依頼",
             value=(
-                f"│ {rule}/{weapon}/{method}\n"
+                f"│ {rule}/{weapon}/{method}\n\n"
                 f"└ 🔗 [依頼文を開く]({msg.jump_url})"
             ),
             inline=False
@@ -90,6 +91,7 @@ async def create_request_list_embed(bot):
     embed.set_footer(
         text=f"更新: {datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).strftime('%H:%M')}"
     )
+
     return embed
 
 # ========= Bot本体 =========
@@ -115,5 +117,3 @@ class MyBot(commands.Bot):
 
 bot = MyBot(command_prefix="!", intents=intents)
 bot.run(TOKEN)
-
-
