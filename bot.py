@@ -60,10 +60,12 @@ async def create_request_list_embed(bot):
     )
 
     async for msg in channel.history(limit=50):
-            if msg.type != discord.MessageType.default:
-                continue
-        if msg.author.bot:
+         # システムメッセージ除外（スレッド開始通知など）
+        if msg.type != 0:
             continue
+        # ② Webhook 以外の投稿は除外
+    if msg.webhook_id is None:
+        continue
 
         # 👍 が付いていたら除外
         if any(r.emoji == "👍" for r in msg.reactions):
