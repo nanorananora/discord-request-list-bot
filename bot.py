@@ -37,21 +37,21 @@
       # ============================== Sheets config ========================
       # 下中級生/上級生
       LU_SPREADSHEET_ID = os.getenv("LU_SPREADSHEET_ID")
-      LU_SHEET_NAME = os.getenv("LU_SHEET_NAME", "シート1")
+      LU_SHEET_NAME = os.getenv("LU_SHEET_NAME", "チャレンジ指導回答")
       LU_TS_COLUMN_INDEX = int(os.getenv("LU_TS_COLUMN_INDEX", "1"))
       LU_NAME_COL_INDEX = int(os.getenv("LU_NAME_COL_INDEX", "28"))   # 既定: AB列
       LU_STATUS_COL_INDEX = int(os.getenv("LU_STATUS_COL_INDEX", "29"))# 既定: AC列
       LU_MENTION_SPREADSHEET_ID = os.getenv("LU_MENTION_SPREADSHEET_ID")
-      LU_MENTION_SHEET_NAME = os.getenv("LU_MENTION_SHEET_NAME", "メンションリスト")
+      LU_MENTION_SHEET_NAME = os.getenv("LU_MENTION_SHEET_NAME", "メンション")
 
       # インカレ生
       INC_SPREADSHEET_ID = os.getenv("INC_SPREADSHEET_ID")
-      INC_SHEET_NAME = os.getenv("INC_SHEET_NAME", "シート1")
+      INC_SHEET_NAME = os.getenv("INC_SHEET_NAME", "チャレンジ指導回答")
       INC_TS_COLUMN_INDEX = int(os.getenv("INC_TS_COLUMN_INDEX", "1"))
       INC_NAME_COL_INDEX = int(os.getenv("INC_NAME_COL_INDEX", "27"))   # 既定: AA列
       INC_STATUS_COL_INDEX = int(os.getenv("INC_STATUS_COL_INDEX", "28"))# 既定: AB列
       INC_MENTION_SPREADSHEET_ID = os.getenv("INC_MENTION_SPREADSHEET_ID")
-      INC_MENTION_SHEET_NAME = os.getenv("INC_MENTION_SHEET_NAME", "メンションリスト")
+      INC_MENTION_SHEET_NAME = os.getenv("INC_MENTION_SHEET_NAME", "メンション")
 
       # ============================== Sheets client ========================
       def make_gspread_client():
