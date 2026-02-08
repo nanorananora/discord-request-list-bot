@@ -17,42 +17,38 @@ steps:
       # ========= Google サービスアカウント（必須） =========
       GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
 
-      # ========= チャンネルID（数値文字列で設定） =========
-      # 下中級生/上級生 読み取り
-      LOWER_REQUEST_CHANNEL_ID: "1469311152671428680"  # 下中級生の依頼チャンネルID
-      UPPER_REQUEST_CHANNEL_ID: "1469310757018665012"  # 上級生の依頼チャンネルID
-      # 下中級生/上級生 出力先
-      LOWER_UPPER_LIST_CHANNEL_ID: "1469310840837640242"  # 一覧を出すチャンネルID
+      # ========= チャンネルID =========
+      LOWER_REQUEST_CHANNEL_ID: "1469311152671428680"
+      UPPER_REQUEST_CHANNEL_ID: "1469310757018665012"
+      LOWER_UPPER_LIST_CHANNEL_ID: "1469310840837640242"
 
-      # インカレ生 読み取り/出力
-      INCOLLE_REQUEST_CHANNEL_ID: "1469310789209817301"  # インカレ生の依頼チャンネルID
-      INCOLLE_LIST_CHANNEL_ID: "1469310877340668139"    # インカレ生の一覧出力チャンネルID
+      INCOLLE_REQUEST_CHANNEL_ID: "1469310789209817301"
+      INCOLLE_LIST_CHANNEL_ID: "1469310877340668139"
 
-      # ========= 下中級生/上級生 用 メイン管理シート =========
-      LU_SPREADSHEET_ID: ${{ secrets.1OaoooyxCnawgZaHsKi0RadH8h5EwC8udARZ9RtoFeBI }}  # スプレッドシートID
-      LU_SHEET_NAME: "チャレンジ指導回答"                              # シート名
-      LU_TS_COLUMN_INDEX: "1"                               # タイムスタンプ列（A=1）
-      # 列位置（既定: 押下者名=AB=28, 確認中=AC=29）
+      # ========= 下中級生 / 上級生 管理シート =========
+      LU_SPREADSHEET_ID: ${{ secrets.LU_SPREADSHEET_ID }}
+      LU_SHEET_NAME: "チャレンジ指導回答"
+      LU_TS_COLUMN_INDEX: "1"
       LU_NAME_COL_INDEX: "28"
       LU_STATUS_COL_INDEX: "29"
 
-      # ========= 下中級生/上級生 用 メンションリスト =========
-      LU_MENTION_SPREADSHEET_ID: ${{ secrets.1frcP_c-GhbnWSUKFIevNaWbveuiBQ4YHzPdT9-xymls }}  # 別シートのID
-      LU_MENTION_SHEET_NAME: "メンション"                             # シート名（A列=なまえ、B列=DiscordユーザーID）
+      # ========= 下中級生 / 上級生 メンション =========
+      LU_MENTION_SPREADSHEET_ID: ${{ secrets.LU_MENTION_SPREADSHEET_ID }}
+      LU_MENTION_SHEET_NAME: "メンション"
 
-      # ========= インカレ生 用 メイン管理シート =========
-      INC_SPREADSHEET_ID: ${{ secrets.1FyM1BkYAp1yUknZdnjJRfTbddfmDXyABWK1OkPyqSU8 }}
+      # ========= インカレ生 管理シート =========
+      INC_SPREADSHEET_ID: ${{ secrets.INC_SPREADSHEET_ID }}
       INC_SHEET_NAME: "チャレンジ指導回答"
       INC_TS_COLUMN_INDEX: "1"
-      # 列位置（既定: 押下者名=AA=27, 確認中=AB=28）
       INC_NAME_COL_INDEX: "27"
       INC_STATUS_COL_INDEX: "28"
 
-      # ========= インカレ生 用 メンションリスト =========
-      INC_MENTION_SPREADSHEET_ID: ${{ secrets.1frcP_c-GhbnWSUKFIevNaWbveuiBQ4YHzPdT9-xymls }}
+      # ========= インカレ生 メンション =========
+      INC_MENTION_SPREADSHEET_ID: ${{ secrets.INC_MENTION_SPREADSHEET_ID }}
       INC_MENTION_SHEET_NAME: "メンション"
+
     run: |
-      python - << 'PY'
+      python bot.py
       # ============================== Imports ==============================
       import os
       import re
