@@ -7,8 +7,8 @@ from discord.ext import commands
 # ========= 設定 =========
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 
-REQUEST_CHANNEL_ID = 1133259695671488603
-REQUEST_LIST_CHANNEL_ID = 1467530008518983968
+REQUEST_CHANNEL_ID = 1469311152671428680
+REQUEST_LIST_CHANNEL_ID = 1469310840837640242
 
 intents = discord.Intents.default()
 intents.message_content = True
