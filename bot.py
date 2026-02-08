@@ -29,28 +29,28 @@ steps:
       INCOLLE_LIST_CHANNEL_ID: "1469310877340668139"    # インカレ生の一覧出力チャンネルID
 
       # ========= 下中級生/上級生 用 メイン管理シート =========
-      LU_SPREADSHEET_ID: ${{ secrets.LU_SPREADSHEET_ID }}  # スプレッドシートID
-      LU_SHEET_NAME: "シート1"                              # シート名
+      LU_SPREADSHEET_ID: ${{ secrets.1OaoooyxCnawgZaHsKi0RadH8h5EwC8udARZ9RtoFeBI }}  # スプレッドシートID
+      LU_SHEET_NAME: "チャレンジ指導回答"                              # シート名
       LU_TS_COLUMN_INDEX: "1"                               # タイムスタンプ列（A=1）
       # 列位置（既定: 押下者名=AB=28, 確認中=AC=29）
       LU_NAME_COL_INDEX: "28"
       LU_STATUS_COL_INDEX: "29"
 
       # ========= 下中級生/上級生 用 メンションリスト =========
-      LU_MENTION_SPREADSHEET_ID: ${{ secrets.LU_MENTION_SPREADSHEET_ID }}  # 別シートのID
-      LU_MENTION_SHEET_NAME: "メンションリスト"                             # シート名（A列=なまえ、B列=DiscordユーザーID）
+      LU_MENTION_SPREADSHEET_ID: ${{ secrets.1frcP_c-GhbnWSUKFIevNaWbveuiBQ4YHzPdT9-xymls }}  # 別シートのID
+      LU_MENTION_SHEET_NAME: "メンション"                             # シート名（A列=なまえ、B列=DiscordユーザーID）
 
       # ========= インカレ生 用 メイン管理シート =========
-      INC_SPREADSHEET_ID: ${{ secrets.INC_SPREADSHEET_ID }}
-      INC_SHEET_NAME: "シート1"
+      INC_SPREADSHEET_ID: ${{ secrets.1FyM1BkYAp1yUknZdnjJRfTbddfmDXyABWK1OkPyqSU8 }}
+      INC_SHEET_NAME: "チャレンジ指導回答"
       INC_TS_COLUMN_INDEX: "1"
       # 列位置（既定: 押下者名=AA=27, 確認中=AB=28）
       INC_NAME_COL_INDEX: "27"
       INC_STATUS_COL_INDEX: "28"
 
       # ========= インカレ生 用 メンションリスト =========
-      INC_MENTION_SPREADSHEET_ID: ${{ secrets.INC_MENTION_SPREADSHEET_ID }}
-      INC_MENTION_SHEET_NAME: "メンションリスト"
+      INC_MENTION_SPREADSHEET_ID: ${{ secrets.1frcP_c-GhbnWSUKFIevNaWbveuiBQ4YHzPdT9-xymls }}
+      INC_MENTION_SHEET_NAME: "メンション"
     run: |
       python - << 'PY'
       # ============================== Imports ==============================
